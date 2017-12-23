@@ -1,8 +1,9 @@
-export default (state = 'Welcome from Redux', action) => {
-  console.log('action -> ', action)
-  if (action) {
-    return 'this is from action'
+export default (state = 0, action) => {
+  switch (action.type) {
+    case 'MESSAGE':
+      return 'this is from action'
+  
+    default:
+      return state
   }
-
-  return state
 }

@@ -5,16 +5,12 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      welcome: 'welcome to react'
+      message: 'welcome to react'
     }
   }
 
   componentWillMount () {
-    this.setState({
-      welcome: this.props.message
-    })
-
-    // TODO: Get the dispatcher in place
+    this.setState(this.props.fetchStore())
   }
 
   render() {
@@ -23,7 +19,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">
-            {this.state.welcome}
+            {this.state.message}
           </h1>
         </header>
       </div>

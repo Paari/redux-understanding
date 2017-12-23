@@ -1,12 +1,19 @@
 import React from "react"
 import { connect } from "react-redux"
-import getVisibleTodos from '../reducers'
 import { getMessage } from "../actions"
 import App from "../App";
 
 const mapStateToProps = (state) => {
   return {
-    message: getVisibleTodos(state)
+    message: state
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchStore: () => {
+      dispatch(getMessage())
+    }
   }
 }
 
@@ -15,7 +22,8 @@ const Message = (props) => (
 )
 
 const VisibleTodoList = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps,
 )(Message)
 
 export default VisibleTodoList

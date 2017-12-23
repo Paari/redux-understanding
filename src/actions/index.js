@@ -1,3 +1,5 @@
 export const getMessage = () => {
-  return true
+  return {
+    type: 'MESSAGE',
+  }
 }
